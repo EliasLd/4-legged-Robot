@@ -14,6 +14,7 @@ Servo servoL;
 
 unsigned int dist = 100;
 int speed = 200;
+bool stop = false;
 
 void setup() {
   Serial.begin(115200);
@@ -24,17 +25,17 @@ void setup() {
 
 void loop() {
     dist = frontUltrasonicSensor.read();
-    Serial.print("Dist = ");
-    Serial.println(dist);
     delay(5);
     if(dist > 35){
+      if(stop){SmoothStop(speed, servoR, servoL, &stop);}
+      stop = false;
       Forward(speed, servoR, servoL);
     }
     else{
-      
+      if(!stop){SmoothStop(speed, servoR, servoL, &stop);}
       Right(speed, servoR, servoL);
     }
-    delay(750);
+    delay(1000);
     /*
     if(dist < 20){
       while(dist < 20){
