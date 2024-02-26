@@ -1,3 +1,5 @@
+#include "servoControl.h"
+
 #include <Servo.h>
 #include <Arduino.h>
 
@@ -19,7 +21,7 @@ void Right(int speed, Servo servoR, Servo servoL){
   delay(10);
 }
 
-void left(int speed, Servo servoR, Servo servoL){
+void Left(int speed, Servo servoR, Servo servoL){
   servoR.writeMicroseconds(1500 + speed);
   servoL.writeMicroseconds(1500 - speed);
   delay(10);
