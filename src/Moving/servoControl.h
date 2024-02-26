@@ -5,4 +5,5 @@ void Forward(int speed, Servo servoR, Servo servoL);
 void Backward(int speed, Servo servoR, Servo servoL);
 void Right(int speed, Servo servoR, Servo servoL);
 void Left(int speed, Servo servoR, Servo servoL);
+bool SmoothStop(int speed, Servo servoR, Servo servoL);
 

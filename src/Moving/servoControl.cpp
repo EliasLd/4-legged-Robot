@@ -26,3 +26,15 @@ void Left(int speed, Servo servoR, Servo servoL){
   servoL.writeMicroseconds(1500 - speed);
   delay(10);
 }
+
+bool SmoothStop(int speed, Servo servoR, Servo servoL){
+   int s = speed;
+   while(s != 0)
+   {
+     s -= 25;
+     servoR.writeMicroseconds(1500 + s);
+     servoL.writeMicroseconds(1500 + s);
+     delay(10);
+   }
+   return true;
+}
