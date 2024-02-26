@@ -32,8 +32,11 @@ void loop() {
     back_dist = BackUltrasonicSensor.read();
     delay(5);
 
-    if(back_dist < 20){
-      speed +=100;
+    if(back_dist < 30){
+      if(back_dist < 15){
+        speed +=  (30 - back_dist) + 70;
+      }
+      speed +=  (30 - back_dist) + 20;
     }
     else{
       speed = 200;
