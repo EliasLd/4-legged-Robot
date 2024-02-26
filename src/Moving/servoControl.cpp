@@ -4,7 +4,7 @@
 #include <Arduino.h>
 
 void Forward(int speed, Servo servoR, Servo servoL){
-  servoR.writeMicroseconds(1500 + speed);
+  servoR.writeMicroseconds(1500 - speed);
   servoL.writeMicroseconds(1500 + speed);
   Serial.println("Avance");
   delay(10);
@@ -12,21 +12,21 @@ void Forward(int speed, Servo servoR, Servo servoL){
 
 void Backward(int speed, Servo servoR, Servo servoL){
   servoR.writeMicroseconds(1500 - speed);
-  servoL.writeMicroseconds(1500 - speed);
+  servoL.writeMicroseconds(1500 + speed);
   Serial.println("Recule");
   delay(10);
 }
 
 void Right(int speed, Servo servoR, Servo servoL){
-  servoR.writeMicroseconds(1500 - speed);
+  servoR.writeMicroseconds(1500 + speed);
   servoL.writeMicroseconds(1500 + speed);
   Serial.println("Droite");
-  delay(10);
+  delay(500);
 }
 
 void Left(int speed, Servo servoR, Servo servoL){
-  servoR.writeMicroseconds(1500 + speed);
-  servoL.writeMicroseconds(1500 - speed);
+  servoR.writeMicroseconds(1500 - speed);
+  servoL.writeMicroseconds(1500 + speed);
   Serial.println("Gauche");
   delay(10);
 }
