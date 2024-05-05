@@ -10,15 +10,21 @@
 #define TRIGG_BACK 8
 #define ECHO_BACK 9
 
+
 Ultrasonic frontUltrasonicSensor(TRIGG_FRONT, ECHO_FRONT);
 Ultrasonic BackUltrasonicSensor(TRIGG_BACK, ECHO_BACK);
 
 Servo servoR;
 Servo servoL;
 
+int sonorPin = A0;
+
 unsigned int dist = 100;
 unsigned int back_dist = 0;
+unsigned int song = 0;
+
 int speed = 200;
+
 bool stop = false;
 
 void setup() {
@@ -28,8 +34,11 @@ void setup() {
 }
 
 void loop() {
+    //song = analogRead(sonorPin);
     dist = frontUltrasonicSensor.read();
     back_dist = BackUltrasonicSensor.read();
+    Serial.println(song);
+    Serial.println(dist);
     delay(5);
 
     if(back_dist < 30){
@@ -42,7 +51,7 @@ void loop() {
       speed = 200;
     }
 
-    if(dist > 35){
+    if(dist > 35 && dist != 0){
       if(stop){SmoothStop(speed, servoR, servoL, &stop);}
       stop = false;
       Forward(speed, servoR, servoL);

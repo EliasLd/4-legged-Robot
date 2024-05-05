@@ -11,8 +11,8 @@ void Forward(int speed, Servo servoR, Servo servoL){
 }
 
 void Backward(int speed, Servo servoR, Servo servoL){
-  servoR.writeMicroseconds(1500 - speed);
-  servoL.writeMicroseconds(1500 + speed);
+  servoR.writeMicroseconds(1500 + speed);
+  servoL.writeMicroseconds(1500 - speed);
   Serial.println("Recule");
   delay(10);
 }
@@ -21,7 +21,7 @@ void Right(int speed, Servo servoR, Servo servoL){
   servoR.writeMicroseconds(1500 + speed);
   servoL.writeMicroseconds(1500 + speed);
   Serial.println("Droite");
-  delay(500);
+  delay(10);
 }
 
 void Left(int speed, Servo servoR, Servo servoL){
